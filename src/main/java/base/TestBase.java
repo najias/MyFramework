@@ -1,11 +1,13 @@
 package base;
 
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
 
+@Listeners(listener.EliteListener.class)
 public class TestBase extends Driver{
 	
-	String  browserType = "firefox";
-	String  appUrl = "http://qa.elitecarrer.net";
+	String  browserType = getProperty("browser");
+	String  appUrl = getProperty("appUrl");
 	
 	@BeforeSuite
 	
