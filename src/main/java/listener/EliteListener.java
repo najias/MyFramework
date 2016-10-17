@@ -33,6 +33,7 @@ import base.TestBase;
 public class EliteListener  implements ITestListener {
 
 	private static String fileSeperator = System.getProperty("file.separator");
+	
 	/**
 	 * Setup:
 	 * 
@@ -89,8 +90,8 @@ public class EliteListener  implements ITestListener {
 	 * @return String
 	 */
 	
-	private static String now(String dateFormat)
-	{
+	private static String now(String dateFormat){
+		
 	    Calendar cal = Calendar.getInstance();
 	    SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
 	    return sdf.format(cal.getTime());
@@ -156,15 +157,19 @@ public class EliteListener  implements ITestListener {
 	}
 
 	public void onTestFailure(ITestResult result) {
+		
 		log("onTestFailure("+result+")");
+		
 		String file = System.getProperty("user.dir")+"/"+"screenshot"+(new Random().nextInt())+".png";
 		
 		String testClassName = getTestClassName(result.getInstanceName()).trim();
 
 		String testMethodName = result.getName().toString().trim();
+		
 		String screenShotName = testMethodName + ".png";
 
 		driver = TestBase.getDriver();
+		
 		if (driver != null) {
 			String imagePath = ".." + fileSeperator + reportDir 
 					+ "Screenshots" + fileSeperator + testClassName
@@ -208,6 +213,7 @@ public class EliteListener  implements ITestListener {
 		cell = new PdfPCell(new Paragraph("" + (result.getEndMillis()-result.getStartMillis()),
 				FontFactory.getFont(FontFactory.HELVETICA, 10, Font.NORMAL, new Color(0, 0, 0))));
 		this.failTable.addCell(cell);
+		
 		//String exception = result.getThrowable() == null ? "" : result.getThrowable().toString();
 		//cell = new PdfPCell(new Paragraph(exception));
 		//this.failTable.addCell(cell);
@@ -280,6 +286,7 @@ public class EliteListener  implements ITestListener {
 				this.document.add(this.successTable);
 				this.successTable.setSpacingBefore(15f);
 			}
+			
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}
@@ -303,6 +310,7 @@ public class EliteListener  implements ITestListener {
 					FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, new Color(255, 0, 0)));
 			chunk.setLocalDestination("" + key);
 			Paragraph throwTitlePara = new Paragraph(chunk);
+			
 			try {
 				this.document.add(throwTitlePara);
 			} catch (DocumentException e3) {
@@ -325,6 +333,7 @@ public class EliteListener  implements ITestListener {
 	}
 	
 	public static void log(Object o) {
+		
 		//System.out.println("[EliteListener] " + o);
 	}
 	
