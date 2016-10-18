@@ -20,11 +20,11 @@ public class SigninPage extends PageBase{
 	
 	
 	//Supporting Methods
-	public void signIn(String emai , String password){
+	public void signIn(String email , String password){
 		emailField.clear();
-		emailField.sendKeys("email");
+		emailField.sendKeys(email);
 		passwordField.clear();
-		passwordField.sendKeys("password");
+		passwordField.sendKeys(password);
 		submitButton.click();
 		
 	}
