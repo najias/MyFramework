@@ -36,6 +36,15 @@ public class TestSigninPage extends TestBase {
 
 	}
 	
+	@Test
+	public void testSignInWithValidEmailAndInvalidPassword() {
+		signinPage.signIn("shakil_ipe@yahoo.com", "Invalid");
+		String url = signinPage.getCurrentUrl();
+		Assert.assertTrue(url.contains("/signin.php"));
+		Assert.assertEquals(signinPage.errorWebElementList.get(1).getText(), "*");
+
+	}
+	
 	@AfterClass
 	public void classTearDown() {
 		 menuBar.jobSearchLink.click();
