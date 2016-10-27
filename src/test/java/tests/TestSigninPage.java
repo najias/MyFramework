@@ -52,6 +52,13 @@ public class TestSigninPage extends TestBase {
 		Assert.assertEquals(signinPage.errorWebElementList.get(0).getText(), "* Email or Password is incorrect.");
 
 	}
+	@Test
+	public void testSignInWithEmptyEmailAndValidPassword() {
+		signinPage.signIn("", "365827");
+		String url = signinPage.getCurrentUrl();
+		Assert.assertTrue(url.contains("/signin.php"));
+		Assert.assertEquals(signinPage.errorWebElementList.get(0).getText(), "* Email can not be empty.");
+   }
 
 	@AfterClass
 	public void classTearDown() {
