@@ -19,13 +19,26 @@ public class TestSigninPage extends TestBase {
 	public void  testSignInWithValidCredentials(){
 		signinPage.signIn(getProperty("email"), getProperty("password"));
 		String Url = signinPage.getCurrentUrl();
+		
+		menuBar.logoutLink.click();
+		menuBar.signInLink.click();
+		
 		Assert.assertTrue(Url.contains("/profile.php"));
 	}
 	
-	@AfterClass
-	public void classSet(){
-		menuBar.logoutLink.click();
+
+	@Test
+	public void testSignInWithInvalidEmailAndValidPassword() {
+		signinPage.signIn("sakil@yah.com", "365827");
+		String url = signinPage.getCurrentUrl();
+		Assert.assertTrue(url.contains("/signin.php"));
+		Assert.assertEquals(signinPage.errorWebElementList.get(0).getText(), "* Email or Password is incorrect.");
+
 	}
 	
+	@AfterClass
+	public void classTearDown() {
+		 menuBar.jobSearchLink.click();
+	}
 
 }
