@@ -1,5 +1,7 @@
 package tests;
 
-public class TestRegisterPage {
+import base.TestBase;
+
+public class TestRegisterPage extends TestBase{
 
 }
