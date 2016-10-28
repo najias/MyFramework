@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -23,6 +24,42 @@ public class TestRegisterPage extends TestBase{
 		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(),
 				"* FirstName can not be less than 2 character.");
 
+	}
+	
+	@Test
+	public void testFirstNameWithTwoCharacter() {
+		registerPage.firstNameField.sendKeys("na");
+		registerPage.submitButton.click();
+
+		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(),
+				"*");
+
+	}
+	
+
+	@Test
+	public void testFirstNameWithThirtyCharacter() {
+		registerPage.firstNameField.sendKeys("namjkisdloiuytrewqasdfghjklmnb");
+		registerPage.submitButton.click();
+
+		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(),
+				"*");
+
+	}
+
+	@Test
+	public void testFirstNameWithThirtyOneCharacter() {
+		registerPage.firstNameField.sendKeys("nmblkjhgfvcxzasdqwertyuioplkjhg");
+		registerPage.submitButton.click();
+
+		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(),
+				"* FirstName can not be greater than 30 character.");
+
+	}
+	
+	@AfterClass
+	public void classTearDown(){
+		menuBar.jobSearchLink.click();
 	}
 
 }
