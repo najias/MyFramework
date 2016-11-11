@@ -215,6 +215,15 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(7).getText(), "*");
 
 	}
+	
+	@Test
+	public void testCountryWithCountryName() {
+		addNewEducation.countryField.clear();
+		addNewEducation.countryField.sendKeys("USA");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(7).getText(), "*");
+
+	}
 
 	@AfterClass
 	public void classTearDown() {
