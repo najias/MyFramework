@@ -39,6 +39,14 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(1).getText(), "* DegreeName can not be empty.");
 
 	}
+	
+	@Test
+	public void testDegreeNameWithValidName() {
+		addNewEducation.degreeNameField.sendKeys("Masters Degree/Graduate");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(1).getText(), "*");
+
+	}
 	@AfterClass
 	public void classTearDown() {
 		menuBar.logoutLink.click();
