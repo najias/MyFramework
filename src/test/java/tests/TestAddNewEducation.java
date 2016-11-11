@@ -121,6 +121,15 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(3).getText(), "*");
 
 	}
+	
+	@Test
+	public void testSchoolNameWithSchoolName() {
+		addNewEducation.schoolNameField.clear();
+		addNewEducation.schoolNameField.sendKeys("Hillcrest");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(4).getText(), "*");
+
+	}
 
 		
 	
