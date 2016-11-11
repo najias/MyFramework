@@ -206,6 +206,50 @@ public class TestRegisterPage extends TestBase{
 		Assert.assertEquals(registerPage.errorWebElementList.get(6).getText(), "* Email can not be empty.");
 
 	}
+	@Test
+	public void testPasswordWithInvalidPassword() {
+		registerPage.passwordField.clear();
+		registerPage.passwordField.sendKeys("InvalidPassword");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(7).getText(), "*");
+
+	}
+
+	@Test
+	public void testPasswordWithEmptyPassword() {
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(7).getText(), "* Password can not be empty.");
+
+	}
+
+	@Test
+	public void testPasswordWithFiveCharacter() {
+		registerPage.passwordField.clear();
+		registerPage.passwordField.sendKeys("hgfds");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(7).getText(),
+				"* Password can not be less than 6 character.");
+
+	}
+
+	@Test
+	public void testPasswordWithSixToTwentyDigitNumber() {
+		registerPage.passwordField.clear();
+		registerPage.passwordField.sendKeys("12345678900987654321");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(7).getText(), "*");
+
+	}
+
+	@Test
+	public void testPasswordWithTwentyOneCharacter() {
+		registerPage.passwordField.clear();
+		registerPage.passwordField.sendKeys("asdfghjklpoiuytrewqzx");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(7).getText(),
+				"* Password can not be greater than 20 character.");
+
+	}
 	
 	@AfterClass
 	public void classTearDown(){
