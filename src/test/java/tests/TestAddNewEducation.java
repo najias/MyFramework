@@ -87,6 +87,15 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(2).getText(), "*");
 
 	}
+	
+	@Test
+	public void testStartingYearWithValidDate() {
+		addNewEducation.startingYearField.clear();
+		addNewEducation.startingYearField.sendKeys("2015");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(2).getText(), "*");
+
+	}
 
 		
 	
