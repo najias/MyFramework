@@ -250,6 +250,13 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(8).getText(), "*");
 
 	}
+	
+	@Test
+	public void testZipCodeWithChar() {
+		addNewEducation.zipCodeField.sendKeys("asdf");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(8).getText(), "*");
+	}
 
 	@AfterClass
 	public void classTearDown() {
