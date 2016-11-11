@@ -148,6 +148,15 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(4).getText(), "* SchoolName can not be empty.");
 
 	}
+	
+	@Test
+	public void testCityWithCityName() {
+		addNewEducation.cityField.clear();
+		addNewEducation.cityField.sendKeys("Jamaica");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(5).getText(), "*");
+
+	}
 
 		
 	
