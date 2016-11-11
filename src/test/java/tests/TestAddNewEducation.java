@@ -20,7 +20,7 @@ public class TestAddNewEducation extends TestBase {
 	
 	@Test
 	public void testDegreeTypeWithSelectOption() {
-		addNewEducation.degreeType.sendKeys("High School Diploma/GED");
+		addNewEducation.selectOptionFormDropdownList(addNewEducation.degreeType);
 		addNewEducation.submitButton.click();
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(0).getText(), "*");
 
@@ -29,6 +29,14 @@ public class TestAddNewEducation extends TestBase {
 	public void testDegreeTypeWithNoOption() {
 		addNewEducation.submitButton.click();
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(0).getText(), "* DegreeType can not be empty.");
+
+	}
+	
+	@Test
+	public void testDegreeNameWithEmptyField() {
+		addNewEducation.degreeNameField.clear();
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(1).getText(), "* DegreeName can not be empty.");
 
 	}
 	@AfterClass
