@@ -57,6 +57,13 @@ public class TestRegisterPage extends TestBase{
 
 	}
 	
+
+	@Test
+	public void testFirstNameWithNoCharacter() {
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(), "* FirstName can not be empty.");
+	}
+	
 	@AfterClass
 	public void classTearDown(){
 		menuBar.jobSearchLink.click();
