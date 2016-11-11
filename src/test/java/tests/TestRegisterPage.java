@@ -265,6 +265,20 @@ public class TestRegisterPage extends TestBase{
 		Assert.assertEquals(registerPage.errorWebElementList.get(8).getText(), "* ConfirmPassword can not be empty.");
 
 	}
+	@Test
+	public void testCaptchaImageWithEmpty() {
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(9).getText(), "* Captcha can not be empty.");
+
+	}
+
+	@Test
+	public void testCaptchaImageWithInvalidInput() {
+		registerPage.captchaImage.sendKeys("Invalid Image");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(9).getText(), "* Wrong Code Entered");
+
+	}
 	
 	@AfterClass
 	public void classTearDown(){
