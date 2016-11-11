@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import base.TestBase;
 
 public class TestAddNewEducation extends TestBase {
-	
 
 	@BeforeClass
 	public void classSetUp() {
@@ -17,7 +16,7 @@ public class TestAddNewEducation extends TestBase {
 		signinPage.signIn("nurul@yahoo.com", "365827");
 		jobSeekerProfileMenu.addEducationLink.click();
 	}
-	
+
 	@Test
 	public void testDegreeTypeWithSelectOption() {
 		addNewEducation.selectOptionFormDropdownList(addNewEducation.degreeType);
@@ -25,13 +24,14 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(0).getText(), "*");
 
 	}
+
 	@Test
 	public void testDegreeTypeWithNoOption() {
 		addNewEducation.submitButton.click();
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(0).getText(), "* DegreeType can not be empty.");
 
 	}
-	
+
 	@Test
 	public void testDegreeNameWithEmptyField() {
 		addNewEducation.degreeNameField.clear();
@@ -39,7 +39,7 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(1).getText(), "* DegreeName can not be empty.");
 
 	}
-	
+
 	@Test
 	public void testDegreeNameWithValidName() {
 		addNewEducation.degreeNameField.sendKeys("Masters Degree/Graduate");
@@ -47,6 +47,7 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(1).getText(), "*");
 
 	}
+
 	@Test
 	public void testDegreeNameWithDigit() {
 		addNewEducation.degreeNameField.sendKeys("12344");
@@ -54,7 +55,7 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(1).getText(), "*");
 
 	}
-	
+
 	@Test
 	public void testDegreeNameWithFiftyChar() {
 		addNewEducation.degreeNameField.clear();
@@ -72,14 +73,14 @@ public class TestAddNewEducation extends TestBase {
 		addNewEducation.submitButton.click();
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(1).getText(), "*");
 	}
-	
+
 	@Test
 	public void testStartingYearWithEmptyField() {
 		addNewEducation.submitButton.click();
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(2).getText(), "* StartingYear can not be empty.");
 
 	}
-	
+
 	@Test
 	public void testStartingYearWithFutureDate() {
 		addNewEducation.startingYearField.sendKeys("2020");
@@ -87,7 +88,7 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(2).getText(), "*");
 
 	}
-	
+
 	@Test
 	public void testStartingYearWithValidDate() {
 		addNewEducation.startingYearField.clear();
@@ -96,14 +97,14 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(2).getText(), "*");
 
 	}
-	
+
 	@Test
 	public void testGraduationYearWithEmptyField() {
 		addNewEducation.submitButton.click();
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(3).getText(), "* GraduationYear can not be empty.");
 
 	}
-	
+
 	@Test
 	public void testGraduationYearWithFutureDate() {
 		addNewEducation.graduationYearField.clear();
@@ -112,7 +113,7 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(3).getText(), "*");
 
 	}
-	
+
 	@Test
 	public void testGraduationYearWithValidDate() {
 		addNewEducation.graduationYearField.clear();
@@ -121,7 +122,7 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(3).getText(), "*");
 
 	}
-	
+
 	@Test
 	public void testSchoolNameWithSchoolName() {
 		addNewEducation.schoolNameField.clear();
@@ -130,7 +131,6 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(4).getText(), "*");
 
 	}
-	
 
 	@Test
 	public void testSchoolNameWithSchoolNameTwoChar() {
@@ -140,7 +140,7 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(4).getText(), "*");
 
 	}
-	
+
 	@Test
 	public void testSchoolNameWithEmptyField() {
 		addNewEducation.schoolNameField.clear();
@@ -148,7 +148,7 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(4).getText(), "* SchoolName can not be empty.");
 
 	}
-	
+
 	@Test
 	public void testCityWithCityName() {
 		addNewEducation.cityField.clear();
@@ -157,7 +157,7 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(5).getText(), "*");
 
 	}
-	
+
 	@Test
 	public void testCityWithEmptyField() {
 		addNewEducation.cityField.clear();
@@ -165,7 +165,6 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(5).getText(), "* City can not be empty.");
 
 	}
-	
 
 	@Test
 	public void testCityWithDigit() {
@@ -175,7 +174,7 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(5).getText(), "*");
 
 	}
-	
+
 	@Test
 	public void testStateWithStateName() {
 		addNewEducation.stateField.clear();
@@ -183,7 +182,7 @@ public class TestAddNewEducation extends TestBase {
 		addNewEducation.submitButton.click();
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(6).getText(), "*");
 	}
-	
+
 	@Test
 	public void testStateWithStateNameDigit() {
 		addNewEducation.stateField.clear();
@@ -191,7 +190,7 @@ public class TestAddNewEducation extends TestBase {
 		addNewEducation.submitButton.click();
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(6).getText(), "*");
 	}
-	
+
 	@Test
 	public void testStateWithEmptyField() {
 		addNewEducation.stateField.clear();
@@ -200,13 +199,18 @@ public class TestAddNewEducation extends TestBase {
 
 	}
 
-		
-	
+	@Test
+	public void testCountryWithEmptyField() {
+		addNewEducation.countryField.clear();
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(7).getText(), "* Country can not be empty.");
+
+	}
+
 	@AfterClass
 	public void classTearDown() {
 		menuBar.logoutLink.click();
 		menuBar.jobSearchLink.click();
 	}
-
 
 }
