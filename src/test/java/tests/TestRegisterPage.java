@@ -191,6 +191,21 @@ public class TestRegisterPage extends TestBase{
 		Assert.assertEquals(registerPage.errorWebElementList.get(5).getText(), "* UserType can not be empty.");
 
 	}
+	@Test
+	public void testEmailWithInvalidEmail() {
+		registerPage.emailField.clear();
+		registerPage.emailField.sendKeys("sultana1@gmailcom");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(6).getText(), "* Invalid Email");
+
+	}
+
+	@Test
+	public void testEmailWithEmptyEmailField() {
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(6).getText(), "* Email can not be empty.");
+
+	}
 	
 	@AfterClass
 	public void classTearDown(){
