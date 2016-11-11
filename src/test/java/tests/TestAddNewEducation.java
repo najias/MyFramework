@@ -54,6 +54,16 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(1).getText(), "*");
 
 	}
+	
+	@Test
+	public void testDegreeNameWithFiftyChar() {
+		addNewEducation.degreeNameField.clear();
+		addNewEducation.degreeNameField.sendKeys("asdfghjklpoiuytrewqazxcvbnmlkjhgfdsaqwertyuioplkjha");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(1).getText(),
+				"* DegreeName can not be greater than 50 character.");
+
+	}
 	@AfterClass
 	public void classTearDown() {
 		menuBar.logoutLink.click();
