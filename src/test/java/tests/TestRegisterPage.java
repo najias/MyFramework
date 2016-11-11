@@ -72,6 +72,57 @@ public class TestRegisterPage extends TestBase{
 		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(), "*");
 	}
 	
+	@Test
+	public void testLastNameWithOneCharacter() {
+		registerPage.lastNameField.clear();
+		registerPage.lastNameField.sendKeys("a");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(),
+				"* LastName can not be less than 2 character.");
+	}
+
+	@Test
+	public void testLastNameWithTwoCharacter() {
+		registerPage.lastNameField.clear();
+		registerPage.lastNameField.sendKeys("na");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(), "*");
+	}
+
+	@Test
+	public void testLastNameWithThirtyCharacter() {
+		registerPage.lastNameField.clear();
+		registerPage.lastNameField.sendKeys("mynameisDewanNadiaSultanaShumi");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(), "*");
+
+	}
+
+	@Test
+	public void testLastNameWithThirtyOneCharacter() {
+		registerPage.lastNameField.clear();
+		registerPage.lastNameField.sendKeys("my name is Dewan Nadia Sultanaa");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(),
+				"* LastName can not be greater than 30 character.");
+
+	}
+
+	@Test
+	public void testLastNameWithNoCharacter() {
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(), "* LastName can not be empty.");
+
+	}
+
+	@Test
+	public void testLastNameWithThirtyDigitNumber() {
+		registerPage.lastNameField.clear();
+		registerPage.lastNameField.sendKeys("3452657893456712345678987653");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(), "*");
+	}
+	
 	@AfterClass
 	public void classTearDown(){
 		menuBar.jobSearchLink.click();
