@@ -136,6 +136,22 @@ public class TestRegisterPage extends TestBase{
 		Assert.assertEquals(registerPage.errorWebElementList.get(2).getText(), "* Gender can not be empty.");
 	}
 	
+	@Test
+	public void testDateOfBirthWithNoDate() {
+		registerPage.dateOfBirthField.clear();
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(3).getText(), "* DateOfBirth can not be empty.");
+	}
+
+	@Test
+	public void testDateOfBirthWithFutureDate() {
+		registerPage.dateOfBirthField.clear();
+		registerPage.dateOfBirthField.sendKeys("2018-12-19");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(3).getText(), "*");
+
+	}
+	
 	@AfterClass
 	public void classTearDown(){
 		menuBar.jobSearchLink.click();
