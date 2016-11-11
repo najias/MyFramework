@@ -103,6 +103,15 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(3).getText(), "* GraduationYear can not be empty.");
 
 	}
+	
+	@Test
+	public void testGraduationYearWithFutureDate() {
+		addNewEducation.graduationYearField.clear();
+		addNewEducation.graduationYearField.sendKeys("2022");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(3).getText(), "*");
+
+	}
 
 		
 	
