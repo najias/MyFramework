@@ -6,4 +6,8 @@ public class PageBase extends Driver{
 		return driver.getCurrentUrl();
 	}
 
+	public void pageRefresh() {
+		driver.navigate().refresh();
+	}
+
 }

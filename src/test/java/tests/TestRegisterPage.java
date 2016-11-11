@@ -123,6 +123,8 @@ public class TestRegisterPage extends TestBase{
 		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(), "*");
 	}
 	
+	
+	
 	@AfterClass
 	public void classTearDown(){
 		menuBar.jobSearchLink.click();
