@@ -47,6 +47,13 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(1).getText(), "*");
 
 	}
+	@Test
+	public void testDegreeNameWithDigit() {
+		addNewEducation.degreeNameField.sendKeys("12344");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(1).getText(), "*");
+
+	}
 	@AfterClass
 	public void classTearDown() {
 		menuBar.logoutLink.click();
