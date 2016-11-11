@@ -151,6 +151,31 @@ public class TestRegisterPage extends TestBase{
 		Assert.assertEquals(registerPage.errorWebElementList.get(3).getText(), "*");
 
 	}
+	@Test
+	public void testPhoneNoWithTwoDigitNumber() {
+		registerPage.phoneNoField.clear();
+		registerPage.phoneNoField.sendKeys("34");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(4).getText(), "*");
+
+	}
+
+	@Test
+	public void testPhoneNoWithThirtyOneDigitNumber() {
+		registerPage.phoneNoField.clear();
+		registerPage.phoneNoField.sendKeys("1234567890123456789009876543211");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(4).getText(),
+				"* PhoneNo can not be greater than 30 character.");
+
+	}
+
+	@Test
+	public void testPhoneNoWithNoNumber() {
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(4).getText(), "* PhoneNo can not be empty.");
+
+	}
 	
 	@AfterClass
 	public void classTearDown(){
