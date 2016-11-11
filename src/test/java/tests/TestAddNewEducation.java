@@ -79,6 +79,14 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(2).getText(), "* StartingYear can not be empty.");
 
 	}
+	
+	@Test
+	public void testStartingYearWithFutureDate() {
+		addNewEducation.startingYearField.sendKeys("2020");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(2).getText(), "*");
+
+	}
 
 		
 	
