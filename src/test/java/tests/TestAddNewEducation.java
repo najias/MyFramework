@@ -130,6 +130,16 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(4).getText(), "*");
 
 	}
+	
+
+	@Test
+	public void testSchoolNameWithSchoolNameTwoChar() {
+		addNewEducation.schoolNameField.clear();
+		addNewEducation.schoolNameField.sendKeys("as");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(4).getText(), "*");
+
+	}
 
 		
 	
