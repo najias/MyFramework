@@ -5,6 +5,8 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 
+import pages.AddNewEducation;
+import pages.JobSeekerProfileMenu;
 import pages.MenuBar;
 import pages.RegisterPage;
 import pages.SigninPage;
@@ -18,6 +20,8 @@ public class TestBase extends Driver{
 	protected static SigninPage  signinPage;
 	protected static MenuBar  menuBar;
 	protected static RegisterPage registerPage;
+	protected static JobSeekerProfileMenu  jobSeekerProfileMenu;
+	protected static AddNewEducation  addNewEducation ;
 	
 	@BeforeSuite
 	
@@ -32,7 +36,8 @@ public class TestBase extends Driver{
 		signinPage = PageFactory.initElements(driver,SigninPage.class);
 		menuBar = PageFactory.initElements(driver, MenuBar.class);
 		registerPage = PageFactory.initElements(driver, RegisterPage.class);
-		
+		jobSeekerProfileMenu = PageFactory.initElements(driver, JobSeekerProfileMenu.class);
+		addNewEducation = PageFactory.initElements(driver, AddNewEducation.class);
 	}
 	@AfterSuite
 	public void tearDown(){
