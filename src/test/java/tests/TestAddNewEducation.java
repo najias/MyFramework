@@ -232,6 +232,15 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(8).getText(), "* ZipCode can not be empty.");
 
 	}
+	
+	@Test
+	public void testZipCodeWithValidDigit() {
+		addNewEducation.zipCodeField.clear();
+		addNewEducation.zipCodeField.sendKeys("11432");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(8).getText(), "*");
+
+	}
 
 	@AfterClass
 	public void classTearDown() {
