@@ -177,6 +177,21 @@ public class TestRegisterPage extends TestBase{
 
 	}
 	
+	@Test
+	public void testUserTypeWithSelectOption() {
+		registerPage.selectOptionFormDropdownList(registerPage.userTypeField);
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(5).getText(), "*");
+
+	}
+	
+	@Test
+	public void testUserTypeWithNoOption() {
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(5).getText(), "* UserType can not be empty.");
+
+	}
+	
 	@AfterClass
 	public void classTearDown(){
 		menuBar.jobSearchLink.click();
