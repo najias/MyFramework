@@ -183,6 +183,14 @@ public class TestAddNewEducation extends TestBase {
 		addNewEducation.submitButton.click();
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(6).getText(), "*");
 	}
+	
+	@Test
+	public void testStateWithStateNameDigit() {
+		addNewEducation.stateField.clear();
+		addNewEducation.stateField.sendKeys("987");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(6).getText(), "*");
+	}
 
 		
 	
