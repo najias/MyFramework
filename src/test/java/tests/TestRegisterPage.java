@@ -279,6 +279,13 @@ public class TestRegisterPage extends TestBase{
 		Assert.assertEquals(registerPage.errorWebElementList.get(9).getText(), "* Wrong Code Entered");
 
 	}
+	@Test
+	public void testPrivacyPolicyWithEmpty() {
+		registerPage.privacyCheckBox.click();
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(10).getText(), "* Privacy can not be empty.");
+
+	}
 	
 	@AfterClass
 	public void classTearDown(){

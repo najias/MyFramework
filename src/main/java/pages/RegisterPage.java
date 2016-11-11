@@ -38,6 +38,12 @@ public class RegisterPage extends PageBase {
 
 	@FindBy(name = "Captcha")
 	public WebElement captchaImage;
+	
+	@FindBy(name = "Privacy")
+	public WebElement privacyCheckBox ;
+	
+	@FindBy(name = "Subscribe")
+	public WebElement subscribeCheckBox ;
 
 	@FindBy(name = "submit")
 	public WebElement submitButton;
