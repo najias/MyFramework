@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -29,6 +30,11 @@ public class TestAddNewEducation extends TestBase {
 		addNewEducation.submitButton.click();
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(0).getText(), "* DegreeType can not be empty.");
 
+	}
+	@AfterClass
+	public void classTearDown() {
+		menuBar.logoutLink.click();
+		menuBar.jobSearchLink.click();
 	}
 
 
