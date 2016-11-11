@@ -206,6 +206,15 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(7).getText(), "* Country can not be empty.");
 
 	}
+	
+	@Test
+	public void testCountryWithDigit() {
+		addNewEducation.countryField.clear();
+		addNewEducation.countryField.sendKeys("12345");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(7).getText(), "*");
+
+	}
 
 	@AfterClass
 	public void classTearDown() {
