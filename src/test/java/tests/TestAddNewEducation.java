@@ -24,5 +24,12 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(0).getText(), "*");
 
 	}
+	@Test
+	public void testDegreeTypeWithNoOption() {
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(0).getText(), "* DegreeType can not be empty.");
+
+	}
+
 
 }
