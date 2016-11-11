@@ -175,6 +175,14 @@ public class TestAddNewEducation extends TestBase {
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(5).getText(), "*");
 
 	}
+	
+	@Test
+	public void testStateWithStateName() {
+		addNewEducation.stateField.clear();
+		addNewEducation.stateField.sendKeys("New York");
+		addNewEducation.submitButton.click();
+		Assert.assertEquals(addNewEducation.errorWebElementList.get(6).getText(), "*");
+	}
 
 		
 	
