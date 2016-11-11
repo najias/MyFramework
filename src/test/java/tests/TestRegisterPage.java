@@ -250,6 +250,21 @@ public class TestRegisterPage extends TestBase{
 				"* Password can not be greater than 20 character.");
 
 	}
+	@Test
+	public void testConfirmPasswordWithInvalidPassword() {
+		registerPage.confirmPasswordField.clear();
+		registerPage.confirmPasswordField.sendKeys("InvalidPassword");
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(8).getText(), "* ConfirmPassword did not match.");
+
+	}
+
+	@Test
+	public void testConfirmPasswordWithEmptyPassword() {
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(8).getText(), "* ConfirmPassword can not be empty.");
+
+	}
 	
 	@AfterClass
 	public void classTearDown(){
