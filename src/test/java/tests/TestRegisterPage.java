@@ -123,7 +123,18 @@ public class TestRegisterPage extends TestBase{
 		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(), "*");
 	}
 	
-	
+	@Test
+	public void testGenderWithSelectOption() {
+		registerPage.selectOptionFormDropdownList(registerPage.genderField);
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(2).getText(), "*");
+	}
+
+	@Test
+	public void testGenderWithNoOption() {
+		registerPage.submitButton.click();
+		Assert.assertEquals(registerPage.errorWebElementList.get(2).getText(), "* Gender can not be empty.");
+	}
 	
 	@AfterClass
 	public void classTearDown(){
