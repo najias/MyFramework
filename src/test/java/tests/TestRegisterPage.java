@@ -18,6 +18,7 @@ public class TestRegisterPage extends TestBase{
 	
 	@Test
 	public void testFirstNameWithOneCharacter() {
+		registerPage.firstNameField.clear();
 		registerPage.firstNameField.sendKeys("a");
 		registerPage.submitButton.click();
 
@@ -28,6 +29,7 @@ public class TestRegisterPage extends TestBase{
 	
 	@Test
 	public void testFirstNameWithTwoCharacter() {
+		registerPage.firstNameField.clear();
 		registerPage.firstNameField.sendKeys("na");
 		registerPage.submitButton.click();
 
@@ -39,6 +41,7 @@ public class TestRegisterPage extends TestBase{
 
 	@Test
 	public void testFirstNameWithThirtyCharacter() {
+		registerPage.firstNameField.clear();
 		registerPage.firstNameField.sendKeys("namjkisdloiuytrewqasdfghjklmnb");
 		registerPage.submitButton.click();
 
@@ -49,6 +52,7 @@ public class TestRegisterPage extends TestBase{
 
 	@Test
 	public void testFirstNameWithThirtyOneCharacter() {
+		registerPage.firstNameField.clear();
 		registerPage.firstNameField.sendKeys("nmblkjhgfvcxzasdqwertyuioplkjhg");
 		registerPage.submitButton.click();
 
