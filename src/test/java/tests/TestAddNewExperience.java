@@ -2,6 +2,7 @@ package tests;
 
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -68,6 +69,11 @@ public class TestAddNewExperience extends TestBase{
 		addNewExperience.submitButton.click();
 		Assert.assertEquals(addNewExperience.errorWebElementList.get(2).getText(), "* JoiningDate can not be empty.");
 
+	}
+	@AfterClass
+	public void classTearDown() {
+		menuBar.logoutLink.click();
+		menuBar.jobSearchLink.click();
 	}
 
 
