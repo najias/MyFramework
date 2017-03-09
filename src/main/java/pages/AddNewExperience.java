@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -19,5 +21,14 @@ public class AddNewExperience extends PageBase{
 	
 	@FindBy(name = "JoiningDate")
 	public WebElement joiningDateField;
+	
+	@FindBy(name = "ResignationDate")
+	public WebElement resignationDateField;
+
+	@FindBy(name = "submit")
+	public WebElement submitButton;
+	
+	@FindBy (id = "error")
+	public List<WebElement> errorWebElementList;
 
 }
