@@ -9,5 +9,8 @@ public class JobSeekerProfileMenu extends PageBase{
 	
 	@FindBy(linkText = "ADD EDUCATION")
 	public WebElement addEducationLink;
+	
+	@FindBy(linkText = "APPLICATION STATUS")
+	public WebElement applicationStatusLink;
 
 }
