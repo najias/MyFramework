@@ -16,5 +16,8 @@ public class AddNewExperience extends PageBase{
 
 	@FindBy(name = "Responsibility")
 	public WebElement responsibilityField;
+	
+	@FindBy(name = "JoiningDate")
+	public WebElement joiningDateField;
 
 }
