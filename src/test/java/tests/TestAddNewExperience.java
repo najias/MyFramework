@@ -1,5 +1,7 @@
 package tests;
 
-public class TestAddNewExperience {
+import base.TestBase;
+
+public class TestAddNewExperience extends TestBase{
 
 }
