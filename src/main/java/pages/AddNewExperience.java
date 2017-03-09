@@ -9,5 +9,8 @@ public class AddNewExperience extends PageBase{
 	
 	@FindBy(name = "JobTitle")
 	public WebElement jobTitleField;
+	
+	@FindBy(name = "Company")
+	public WebElement companyField;
 
 }
