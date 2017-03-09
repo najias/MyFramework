@@ -12,5 +12,9 @@ public class AddNewExperience extends PageBase{
 	
 	@FindBy(name = "Company")
 	public WebElement companyField;
+	
+
+	@FindBy(name = "Responsibility")
+	public WebElement responsibilityField;
 
 }
